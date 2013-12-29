@@ -1,0 +1,3 @@
+veles_home_work_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: VelesHomeWorkBundle:Default:index }

@@ -1,0 +1,4 @@
+veles_home_work:
+    resource: "@VelesHomeWorkBundle/Resources/config/routing.yml"
+    prefix:   /
+
