@@ -1,3 +1,42 @@
-veles_home_work_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: VelesHomeWorkBundle:Default:index }
+_main:
+        pattern: /
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:main}
+
+_about:
+        pattern: /about/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:about}
+
+_comment:
+        pattern: /comment/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneComment}
+_single_comment:
+        pattern: /comment/{cid}
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneComment}
+_comment_success:
+        pattern: /success/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:successAdd}
+
+_article:
+        pattern: /article/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneArticle}
+_single_article:
+        pattern: /article/{aid}
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneArticle}
+
+_category:
+        pattern: /category/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneCategory}
+_single_category:
+        pattern: /category/{catid}
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneCategory}
+
+_tag:
+        pattern: /tag/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneTag}
+_single_tag:
+        pattern: /tag/{tid}
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneTag}
+
+_gbook:
+        pattern: /gbook/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:gbook}

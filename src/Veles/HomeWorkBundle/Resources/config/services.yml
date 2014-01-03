@@ -1,7 +1,0 @@
-parameters:
-#    veles_home_work.example.class: Veles\HomeWorkBundle\Example
-
-services:
-#    veles_home_work.example:
-#        class: %veles_home_work.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

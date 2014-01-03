@@ -1,0 +1,31 @@
+{% extends 'VelesHomeWorkBundle:HomeWork:index.html.twig' %}
+
+{% block container %}
+    {% if oneComment.error is defined %}
+        <b>{{ oneComment.error  }}</b>
+    {% elseif oneComment.id %}
+        <div class="page-header">
+            <h1>{{ pageContent.title }}</h1>
+        </div>
+        <div class="well">
+            <p>
+                {{ pageContent.description }}
+                <hr class="light"/>
+                <div class="single_comment">
+                    <div class="">
+                        <div class="user_picture">
+                            <img class="img-circle" src="https://cdn1.iconfinder.com/data/icons/UltraBuuf/128/Thor.png">
+                        </div>
+                        <div class="user_name">
+                            <h4><b>{{ oneComment.name }}</b></h4>
+                            {{ oneComment.email }}
+                        </div>
+                        <div class="clr"></div>
+                    </div><br>
+                    <div>{{ oneComment.message }}</div>
+                </div>
+                <div class="clr"></div>
+            </p>
+        </div>
+    {% endif %}
+{% endblock container %}

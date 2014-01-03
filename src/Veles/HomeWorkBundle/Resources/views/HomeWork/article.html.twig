@@ -1,0 +1,31 @@
+{% extends 'VelesHomeWorkBundle:HomeWork:index.html.twig' %}
+
+{% block container %}
+    {% if oneArticle.error is defined %}
+        <b>{{ oneArticle.error  }}</b>
+    {% else %}
+        <div class="page-header">
+            <h1>Article: {{ oneArticle.title }}</h1>
+        </div>
+        <div class="">
+            <div class="latest_articles">
+                <div class="title">
+                    <h3><a href="{{ path('_single_article', {'aid': oneArticle.id}) }}">{{ oneArticle.title }}</a></h3>
+                    <h5>Category: <a href="{{ path('_single_category', {'catid': oneArticle.category.name}) }}">{{ oneArticle.category.title }}</a></h5>
+                    <div class="clr"></div>
+                </div>
+                <h6>Published: {{ oneArticle.created.date }}</h6>
+                <img class="img-circle-middle" src="https://cdn1.iconfinder.com/data/icons/UltraBuuf/128/Thor.png">
+                {{ oneArticle.body }}
+                <div class="clr"></div>
+                <div class="tags_container">
+                    Tags:
+                    {% for tags in oneArticle.tags %}
+                        <a href="{{ path('_single_tag', {'tid': tags.name}) }}">{{ tags.title }}</a>,
+                    {% endfor %}
+                </div>
+                <hr />
+            </div>
+        </div>
+    {% endif %}
+{% endblock container %}

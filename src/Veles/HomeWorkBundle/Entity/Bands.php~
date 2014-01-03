@@ -1,0 +1,53 @@
+<?php
+
+    namespace Veles\MusicBundle\Entity;
+
+    use Doctrine\ORM\Mapping as ORM;
+
+    /**
+     * Bands
+     *
+     * @ORM\Table()
+     * @ORM\Entity(repositoryClass="Veles\MusicBundle\Entity\BandsRepository")
+     */
+    class Bands
+    {
+        /**
+         * @var integer
+         *
+         * @ORM\Column(name="id", type="integer")
+         * @ORM\Id
+         * @ORM\GeneratedValue(strategy="AUTO")
+         */
+        private $id;
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="name", type="string", length=255)
+         */
+        private $name;
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="genre", type="string", length=255)
+         */
+        private $genre;
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="albums", type="string", length=255)
+         */
+        private $albums;
+
+        /**
+         * @var integer
+         *
+         * @ORM\Column(name="actv", type="integer")
+         */
+        private $actv;
+        
+    }
+?>

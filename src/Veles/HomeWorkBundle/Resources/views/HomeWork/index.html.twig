@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="VeleslaV">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <title>{% block title %}Theme Template for Bootstrap{% endblock title%}</title>
+
+        {% block stylesheets %}
+            <!-- Bootstrap core CSS -->
+            {% stylesheets '@bootstrap_min_css' %}
+                <link rel="stylesheet" href="{{ asset(asset_url) }}"/>
+            {% endstylesheets %}
+
+            <!-- Custom styles for this template -->
+            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' %}
+                <link rel="stylesheet" href="{{ asset(asset_url) }}"/>
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+
+        {% block javascripts %}
+            {% javascripts '@jquery_min_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            {% javascripts '@bootstrap_min_js' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+
+            <!-- Custom scripts for this template -->
+            {% javascripts '@VelesHomeWorkBundle/Resources/public/js/*' %}
+                <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
+            {% endjavascripts %}
+        {% endblock javascripts %}
+    </head>
+    <body>
+        {{ include ('VelesHomeWorkBundle:HomeWork/Modules:navbar.html.twig', {'pageName': pageName}) }}
+        {% if pageName == "gbook" %}
+            <div id="sliderWrapper">
+                <div id="slider">
+                    {% block form %}{% endblock form %}
+                </div>
+            </div>
+        {% endif %}
+        {% block body %}
+            <div id="mainWrapper" class="container">
+                <div class="col-xs-12 {% if pageName != "gbook" %}col-sm-9{% endif %}">
+                    {% block container %}{% endblock container %}
+                </div>
+                {% if pageName != "gbook" %}
+                    <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+                        {{ render(controller('VelesHomeWorkBundle:HomeWork:latestArticle', {  })) }}
+                    </div>
+                {% endif %}
+                <div class="clr"></div>
+            </div>
+        {% endblock body %}
+        {{ include ('VelesHomeWorkBundle:HomeWork/Modules:footer.html.twig') }}
+    </body>
+</html>
