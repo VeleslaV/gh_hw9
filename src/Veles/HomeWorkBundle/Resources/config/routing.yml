@@ -40,3 +40,9 @@ _single_tag:
 _gbook:
         pattern: /gbook/
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:gbook}
+
+_ajax_update_article_views:
+        pattern: /ajax/update/article_views/
+        defaults: { _controller: VelesHomeWorkBundle:Ajax:ajaxUpdateArticleViews }
+        options:
+            expose: true

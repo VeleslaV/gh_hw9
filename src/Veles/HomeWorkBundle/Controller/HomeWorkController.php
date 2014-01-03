@@ -4,6 +4,7 @@ namespace Veles\HomeWorkBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Gbook;
 use Veles\HomeWorkBundle\Form\Type\GbookType;
@@ -210,7 +211,6 @@ class HomeWorkController extends Controller
 
         return $tagObj;
     }
-
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Tech >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public function successAddAction()

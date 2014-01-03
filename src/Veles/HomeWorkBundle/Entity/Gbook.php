@@ -29,7 +29,7 @@ class Gbook
      * @Assert\Length(min = "5")
      * @ORM\Column(name="name", type="string", length=150)
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class Gbook
      * @Assert\Email()
      * @ORM\Column(name="email", type="string", length=150)
      */
-    public $email;
+    protected $email;
 
     /**
      * @var string
@@ -47,7 +47,7 @@ class Gbook
      * @Assert\Length(min = "100")
      * @ORM\Column(name="message", type="text")
      */
-    public $message;
+    protected $message;
     
     /**
      * Get id
