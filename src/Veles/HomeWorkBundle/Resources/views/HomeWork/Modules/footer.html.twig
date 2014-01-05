@@ -1,6 +1,6 @@
 <div class="navbar navbar-inverse" id="footer">
     <div class="container">
-        {% if pageName == "gbook" %}
+        {% if pagination is defined %}
             <div class="pgn_navigation">
                 {{ knp_pagination_render(pagination) }}
             </div>

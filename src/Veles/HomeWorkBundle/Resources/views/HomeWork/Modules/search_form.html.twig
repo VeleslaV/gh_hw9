@@ -1,0 +1,6 @@
+{{ form_start(form, {'action': path('_search'), 'method': 'POST', 'attr': {'id': 'searchForm','role': 'form', 'novalidate': 'novalidate', 'class': 'navbar-form navbar-right' }}) }}
+    <div class="form-group">
+        {{ form_errors(form.keyword) }}{{ form_widget(form.keyword, {'attr': {'class': 'form-control', 'placeholder': 'search' }}) }}
+    </div>
+    <button type="submit" class="btn btn-primary">Find</button>
+{{ form_end(form) }}

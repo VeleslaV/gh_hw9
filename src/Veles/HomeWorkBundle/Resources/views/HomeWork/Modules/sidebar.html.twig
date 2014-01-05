@@ -20,7 +20,7 @@
             <ul class="nav nav-list">
                 <li class="nav-header">Last post from guest book</li>
                 {% for comment in latestComments %}
-                    <li><a href="{{ path('_single_comment', {'cid': comment.id}) }}">{{ comment.message|cutString(20) }}</a></li>
+                    <li><a href="{{ path('_single_comment', {'cid': comment.id}) }}">{{ comment.message|cutString(28) }}</a></li>
                 {% endfor %}
             </ul>
         </div>

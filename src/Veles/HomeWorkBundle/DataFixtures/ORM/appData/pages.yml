@@ -20,3 +20,6 @@ pages:
     success:
         title: Adding success
         description: Congratulations. Your comment has successfully added!
+    search:
+        title: Search result
+        description:

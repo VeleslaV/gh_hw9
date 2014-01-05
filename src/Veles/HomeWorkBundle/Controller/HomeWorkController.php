@@ -2,12 +2,17 @@
 
 namespace Veles\HomeWorkBundle\Controller;
 
+use Doctrine\DBAL\Types\VarDateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Gbook;
 use Veles\HomeWorkBundle\Form\Type\GbookType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Collection;
 
 class HomeWorkController extends Controller
 {
@@ -92,13 +97,15 @@ class HomeWorkController extends Controller
 
     public function getCommentsData($cid = "")
     {
-        $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Gbook');
-        $em = $this->getDoctrine()->getManager();
-
         if($cid == ""){
-            //$commentObj = $repository->findAllOrderedById();
-            $commentObj = $em->createQuery('SELECT g FROM VelesHomeWorkBundle:Gbook g ORDER BY g.id DESC');
+            $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Gbook');
+            $query = $repository->createQueryBuilder('g')
+                ->orderBy('g.id', 'DESC')
+                ->getQuery();
+
+            $commentObj = $query;
         }else{
+            $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Gbook');
             $commentObj = $repository->find($cid);
         }
 
@@ -210,6 +217,58 @@ class HomeWorkController extends Controller
         }
 
         return $tagObj;
+    }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Search >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    public function searchFormAction(Request $request)
+    {
+        $form = $this->createFormBuilder()
+            ->add('keyword', 'text', array(
+                'constraints' => array(
+                    new NotBlank(),
+                    new Length(array('min' => 3)),
+                ),
+            ))
+            ->getForm();
+
+        $form->handleRequest($request);
+        $pageData['form'] = $form->createView();
+
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $keyword = $data['keyword'];
+
+            return $this->redirect($this->generateUrl('_search_keyword', array('keyword' => $keyword), true));
+        }
+
+        return $this->render('VelesHomeWorkBundle:HomeWork/Modules:search_form.html.twig', $pageData);
+    }
+
+    public function searchResultAction($keyword = "")
+    {
+        if(empty($keyword)){
+            $pageData['search']['error'] = "No keyword for search =(";
+        }else{
+            $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
+            $searchQuery = $repository->createQueryBuilder('a')
+                ->where('a.body LIKE :keyword OR a.title LIKE :keyword')
+                ->setParameter('keyword', '%'.$keyword.'%')
+                ->getQuery();
+
+            $paginator  = $this->get('knp_paginator');
+            $p_options = Yaml::parse($this->getYmlFile());
+
+            $pagination = $paginator->paginate(
+                $searchQuery,
+                $this->get('request')->query->get('page', $p_options['start_from']),$p_options['search_result_per_page']
+            );
+
+            $pageData['search'] = $searchQuery;
+            $pageData['kwd'] = $keyword;
+            $pageData['pagination'] = $pagination;
+        }
+
+        return $this->render('VelesHomeWorkBundle:HomeWork:search.html.twig', $pageData);
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Tech >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

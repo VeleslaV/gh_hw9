@@ -46,3 +46,11 @@ _ajax_update_article_views:
         defaults: { _controller: VelesHomeWorkBundle:Ajax:ajaxUpdateArticleViews }
         options:
             expose: true
+
+_search:
+        pattern: /search/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:searchForm}
+
+_search_keyword:
+        pattern: /search/{keyword}/
+        defaults: {_controller: VelesHomeWorkBundle:HomeWork:searchResult}

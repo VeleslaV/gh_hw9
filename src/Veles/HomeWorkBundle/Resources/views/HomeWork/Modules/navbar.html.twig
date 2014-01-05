@@ -5,16 +5,17 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li {% if pageName == "main" %}class="active"{% endif %}>
+                <li {% if app.request.get('_route') == "_main" %}class="active"{% endif %}>
                     <a href="{{ path('_main') }}">Home</a>
                 </li>
-                <li {% if pageName == "about" %}class="active"{% endif %}>
+                <li {% if app.request.get('_route') == "_about" %}class="active"{% endif %}>
                     <a href="{{ path('_about') }}">About me</a>
                 </li>
-                <li {% if pageName == "gbook" or pageName == "comment" %}class="active"{% endif %}>
+                <li {% if app.request.get('_route') == "_gbook" %}class="active"{% endif %}>
                     <a href="{{ path('_gbook') }}">Guest book</a>
                 </li>
             </ul>
+            {{ render(controller('VelesHomeWorkBundle:HomeWork:searchForm')) }}
         </div>
     </div>
 </div>
