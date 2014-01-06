@@ -1,19 +1,15 @@
-imports:
-    - javascript
-    - php
-
 tools:
-
     # Runs PHP Copy/Paste Detector
     php_cpd:
+        enabled:              true
         command:              phpcpd
 
         # A list of excluded directories.
-        excluded_dirs:        []
+        excluded_dirs:
+            - 'vendor'
 
         # A list of names that should be scanned (default: *.php)
         names:
-
             # Default:
             - *.php
 
