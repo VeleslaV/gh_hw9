@@ -11,28 +11,30 @@
 
         {% block stylesheets %}
             <!-- Bootstrap core CSS -->
-            {% stylesheets '@bootstrap_min_css' %}
-                <link rel="stylesheet" href="{{ asset(asset_url) }}"/>
+            {% stylesheets '@bootstrap_min_css'  filter='?yui_css' %}
+                <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
 
             <!-- Custom styles for this template -->
-            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' %}
-                <link rel="stylesheet" href="{{ asset(asset_url) }}"/>
+            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' filter='?yui_css' %}
+                <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
         {% endblock stylesheets %}
 
         {% block javascripts %}
+            <!-- Jquery scripts -->
             {% javascripts '@jquery_min_js' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
 
+            <!-- Bootstrap scripts -->
             {% javascripts '@bootstrap_min_js' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
 
             <!-- Custom scripts for this template -->
             {% javascripts '@VelesHomeWorkBundle/Resources/public/js/*' %}
-                <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
+                <script type="text/javascript" src="{{asset_url}}"></script>
                 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
                 <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
             {% endjavascripts %}

@@ -4,9 +4,7 @@
     {% if search.error is defined %}
         <b>{{ search.error  }}</b>
     {% else %}
-        <div class="page-header">
-            <h1>Search result for: <i>{{ kwd }}</i> </h1>
-        </div>
+        {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Search result', 'pageName': kwd}) }}
         <div class="search_article_container">
             {% for data in pagination %}
                 <div class="latest_articles">

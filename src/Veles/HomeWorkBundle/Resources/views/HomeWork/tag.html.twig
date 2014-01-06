@@ -5,9 +5,7 @@
         <b>{{ oneTag.error  }}</b>
     {% else %}
         {% for sectionData in oneTag %}
-            <div class="page-header">
-                <h1>Tag: {{ sectionData.title }}</h1>
-            </div>
+            {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Tags', 'pageName': sectionData.title}) }}
             <div class="">
                 {% for data in sectionData.articles %}
                     <div class="latest_articles">

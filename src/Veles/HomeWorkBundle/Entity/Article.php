@@ -24,6 +24,7 @@ class Article
     protected $id;
 
     /**
+     *
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="articles")
      * @ORM\JoinColumn(name="id_category", referencedColumnName="id")
      */
@@ -31,6 +32,7 @@ class Article
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
@@ -45,6 +47,7 @@ class Article
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="body", type="text")
      */
@@ -58,6 +61,7 @@ class Article
     protected $created;
 
     /**
+     *
      * @ORM\ManyToMany(targetEntity="Tag", mappedBy="articles")
      * @ORM\JoinTable(name="tag_article")
      */
@@ -75,11 +79,10 @@ class Article
         $this->tags = new ArrayCollection();
     }
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -95,14 +98,14 @@ class Article
     public function setCategory($category)
     {
         $this->category = $category;
-    
+
         return $this;
     }
 
     /**
      * Get category
      *
-     * @return integer 
+     * @return integer
      */
     public function getCategory()
     {
@@ -118,14 +121,14 @@ class Article
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -141,14 +144,14 @@ class Article
     public function setImg($img)
     {
         $this->img = $img;
-    
+
         return $this;
     }
 
     /**
      * Get img
      *
-     * @return string 
+     * @return string
      */
     public function getImg()
     {
@@ -164,14 +167,14 @@ class Article
     public function setBody($body)
     {
         $this->body = $body;
-    
+
         return $this;
     }
 
     /**
      * Get body
      *
-     * @return string 
+     * @return string
      */
     public function getBody()
     {
@@ -187,14 +190,14 @@ class Article
     public function setCreated($created)
     {
         $this->created = $created;
-    
+
         return $this;
     }
 
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {

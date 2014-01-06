@@ -5,9 +5,7 @@
         <b>{{ oneCategory.error  }}</b>
     {% else %}
         {% for sectionData in oneCategory %}
-            <div class="page-header">
-                <h1>Category: {{ sectionData.title }}</h1>
-            </div>
+            {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Categories', 'pageName': sectionData.title}) }}
             <div class="">
                 {% for data in sectionData.articles %}
                     <div class="latest_articles">

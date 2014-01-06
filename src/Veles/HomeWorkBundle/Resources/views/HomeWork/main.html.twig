@@ -1,9 +1,7 @@
 {% extends 'VelesHomeWorkBundle:HomeWork:index.html.twig' %}
 
 {% block container %}
-    <div class="page-header">
-        <h1>{{ pageContent.title }}</h1>
-    </div>
+    {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'pageName': sectionData.title}) }}
     <div>
         {% for data in posts %}
             <div class="latest_articles">
@@ -25,5 +23,7 @@
                 <hr />
             </div>
         {% endfor %}
+        <div id="moreArticlesContainer"><div id="loaderContainer"></div></div>
+        <a href="javascript:;" id="showMoreArticles" class="btn btn-block btn-primary">Show more articles</a>
     </div>
 {% endblock container %}

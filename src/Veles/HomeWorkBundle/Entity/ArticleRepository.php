@@ -13,6 +13,14 @@ class ArticleRepository extends EntityRepository
             ->setMaxResults($limit)
             ->getResult();
     }
+    public function findArticlesOffsetLimit($offset, $limit)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a FROM VelesHomeWorkBundle:Article a ORDER BY a.id DESC')
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
+            ->getResult();
+    }
     public function findMostViewedArticlesLimit($limit)
     {
         return $this->getEntityManager()

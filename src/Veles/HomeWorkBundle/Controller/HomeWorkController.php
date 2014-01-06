@@ -2,14 +2,14 @@
 
 namespace Veles\HomeWorkBundle\Controller;
 
-use Doctrine\DBAL\Types\VarDateTimeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Gbook;
+use Veles\HomeWorkBundle\Entity\Article;
 use Veles\HomeWorkBundle\Form\Type\GbookType;
+use Veles\HomeWorkBundle\Form\Type\ArticleType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
@@ -22,8 +22,7 @@ class HomeWorkController extends Controller
         $pageObj = $repository->findOneBy(array('name' => $pageLink));
 
         $pageData = array(
-            'pageName' => $pageLink,
-            'pageContent' => $pageObj
+            'sectionData' => $pageObj
         );
 
         return $pageData;
@@ -34,9 +33,8 @@ class HomeWorkController extends Controller
         $pageData = $this->createPageObject("main");
 
         $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
-        $articleObj = $repository->findBy(array(), array('created' => 'ASC'));
-
-        $pageData['posts'] = $articleObj;
+        $articlesObj = $repository->findLatestArticlesLimit("4");
+        $pageData['posts'] = $articlesObj;
 
         return $this->render('VelesHomeWorkBundle:HomeWork:main.html.twig', $pageData);
     }
@@ -139,17 +137,28 @@ class HomeWorkController extends Controller
 
     public function oneArticleAction($aid = "")
     {
-        $pageData = array(
-            'pageName' => "article"
-        );
-
         if(empty($aid)){
-            $pageData['oneArticle']['error'] = "No article id =(";
+            $pageData['sectionData']['error'] = "No article id =(";
         }else{
-            $pageData['oneArticle'] = $this->getArticleData($aid);
+            $pageData['sectionData'] = $this->getArticleData($aid);
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:article.html.twig', $pageData);
+    }
+
+    public function loadMoreArticleAction($page)
+    {
+        $pageData = $this->createPageObject("main");
+        $limit = 4;
+        $offset = ($limit * ($page - 1)) + 1;
+
+        $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
+        $articlesObj = $repository->findArticlesOffsetLimit($offset, $limit);
+        $pageData['posts'] = $articlesObj;
+
+        $content = $this->renderView('VelesHomeWorkBundle:HomeWork:Modules/articles_template.html.twig', $pageData);
+
+        return new Response($content);
     }
 
     public function getArticleData($aid)
@@ -163,6 +172,35 @@ class HomeWorkController extends Controller
         }
 
         return $articleObj;
+    }
+
+    public function addArticleAction(Request $request)
+    {
+        $pageData['sectionData']['title'] = "Add new";
+
+        $article = new Article();
+        $form = $this->createForm(new ArticleType(), $article);
+        $form->handleRequest($request);
+
+        $pageData['form'] = $form->createView();
+
+        if($form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            //$tags_check = $article->getTags();
+            //var_dump($tags_check);
+
+            $article
+                //->setTags($tags_check)
+                ->setImg("no_img.png")
+                ->setCreated(new \DateTime());
+
+            $manager->persist($article);
+            $manager->flush();
+
+            return $this->redirect($this->generateUrl('_comment_success'));
+        }
+
+        return $this->render('VelesHomeWorkBundle:HomeWork:article_add.html.twig', $pageData);
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Categories >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

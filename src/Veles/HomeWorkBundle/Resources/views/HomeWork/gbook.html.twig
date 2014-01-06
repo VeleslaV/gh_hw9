@@ -37,9 +37,7 @@
 
 {% block container %}
     <div id="homeWrapper">
-        <div class="page-header">
-            <h1>{{ pageContent.title }}</h1>
-        </div>
+        {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'pageName': sectionData.title}) }}
         <div class="well">
             {% for comment in pagination %}
                 <div class="col-8 col-sm-8 col-lg-6 comment_wrapper">

@@ -1,9 +1,9 @@
 $(document).ready(function(){
     $(".title h3 a").click(function(event){
-         event.preventDefault();
-         var linkLocation = this.href;
-         var linkId = linkLocation.match(/\/article\/(.*)/)[1];
-         var path = Routing.generate('_ajax_update_article_views', { });
+        event.preventDefault();
+        var linkLocation = this.href;
+        var linkId = linkLocation.match(/\/article\/(.*)/)[1];
+        var path = Routing.generate('_ajax_update_article_views', { });
 
 
          $.post(path,{ "id": linkId} ,function(request){
@@ -12,6 +12,23 @@ $(document).ready(function(){
                  window.location = linkLocation;
              }
          });
+    });
+
+    $("a#showMoreArticles").click(function(event){
+        var currentPage = $("span#pageNum").html();
+        var page = parseInt(currentPage) + 1;
+        var path = Routing.generate('_load_more_article', { page: page });
+
+        $("#loaderContainer").html("<img src='http://stars.mmotorg.ru/img/loader.gif'>").fadeOut("slow", function() {
+            $.post(path, { "page": page }, function(request){
+                if(!$.isEmptyObject(request)){
+                    $("#moreArticlesContainer").before(request);
+                    $("span#pageNum").html(page);
+                }
+            });
+        });
+
+        return false;
     });
 
     $("form#searchForm").submit(function(){
