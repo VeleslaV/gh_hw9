@@ -3,15 +3,21 @@
 GeekHub homework #9
 ========================
 ### Creating blog with Symfony2 framework
->
->
->
->
->
->
->
-    .
+>.
 
+>.
+
+>.
+
+>.
+
+>.
+
+>.
+
+>.
+
+>.
 
 Symfony Standard Edition
 ========================
