@@ -1,24 +1,2 @@
 tools:
-    # Runs PHP Copy/Paste Detector
-    php_cpd:
-        enabled:              true
-        command:              phpcpd
-
-        # A list of excluded directories.
-        excluded_dirs:
-            - 'vendor'
-
-        # A list of names that should be scanned (default: *.php)
-        names:
-            # Default:
-            - *.php
-
-        # Minimum number of identical lines (default: 5)
-        min_lines:            5
-
-        # Minimum number of identical tokens (default: 70)
-        min_tokens:           70
-        enabled:              false
-        filter:
-            paths:                []
-            excluded_paths:       []
+    php_cpd: true
