@@ -1,3 +1,20 @@
+[![Build Status](https://travis-ci.org/VeleslaV/gh_hw9.png?branch=master)](https://travis-ci.org/VeleslaV/gh_hw9)
+
+GeekHub homework #9
+========================
+### Creating blog with Symfony2 framework
+
+
+
+
+
+
+
+
+
+
+
+
 Symfony Standard Edition
 ========================
 
