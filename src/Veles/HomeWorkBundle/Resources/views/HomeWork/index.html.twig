@@ -11,12 +11,12 @@
 
         {% block stylesheets %}
             <!-- Bootstrap core CSS -->
-            {% stylesheets '@bootstrap_min_css'  filter='?yui_css' %}
+            {% stylesheets '@bootstrap_min_css'  filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
 
             <!-- Custom styles for this template -->
-            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' filter='?yui_css' %}
+            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
         {% endblock stylesheets %}

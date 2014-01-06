@@ -19,11 +19,6 @@ _comment_success:
 _article:
         pattern: /article/
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneArticle}
-_load_more_article:
-        pattern: /main/page/{page}/
-        defaults: {_controller: VelesHomeWorkBundle:HomeWork:loadMoreArticle}
-        options:
-            expose: true
 _single_article:
         pattern: /article/{aid}
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneArticle}
@@ -52,6 +47,11 @@ _gbook:
 _ajax_update_article_views:
         pattern: /ajax/update/article_views/
         defaults: { _controller: VelesHomeWorkBundle:Ajax:ajaxUpdateArticleViews }
+        options:
+            expose: true
+_load_more_article:
+        pattern: /ajax/load_articles/{page}/
+        defaults: {_controller: VelesHomeWorkBundle:Ajax:ajaxLoadMoreArticle}
         options:
             expose: true
 

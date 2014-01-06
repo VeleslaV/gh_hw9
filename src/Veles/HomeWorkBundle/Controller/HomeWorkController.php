@@ -4,7 +4,6 @@ namespace Veles\HomeWorkBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Gbook;
 use Veles\HomeWorkBundle\Entity\Article;
@@ -34,7 +33,12 @@ class HomeWorkController extends Controller
 
         $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
         $articlesObj = $repository->findLatestArticlesLimit("4");
-        $pageData['posts'] = $articlesObj;
+
+        if(empty($articlesObj)){
+            $pageData['resultData']['error'] = "No articles found =(";
+        }else{
+            $pageData['resultData'] = $articlesObj;
+        }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:main.html.twig', $pageData);
     }
@@ -61,7 +65,6 @@ class HomeWorkController extends Controller
             $this->get('request')->query->get('page', $p_options['start_from']),$p_options['posts_per_page']
         );
 
-        $pageData['comments'] = $commentsQuery;
         $pageData['pagination'] = $pagination;
 
         $gbook = new Gbook();
@@ -85,9 +88,9 @@ class HomeWorkController extends Controller
         $pageData = $this->createPageObject("comment");
 
         if($cid == ""){
-            $pageData['oneComment']['error'] = "No comment id =(";
+            $pageData['resultData']['error'] = "No comment id =(";
         }else{
-            $pageData['oneComment'] = $this->getCommentsData($cid);
+            $pageData['resultData'] = $this->getCommentsData($cid);
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:comment.html.twig', $pageData);
@@ -138,27 +141,12 @@ class HomeWorkController extends Controller
     public function oneArticleAction($aid = "")
     {
         if(empty($aid)){
-            $pageData['sectionData']['error'] = "No article id =(";
+            $pageData['resultData']['error'] = "No article id =(";
         }else{
-            $pageData['sectionData'] = $this->getArticleData($aid);
+            $pageData['resultData']['article'] = $this->getArticleData($aid);
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:article.html.twig', $pageData);
-    }
-
-    public function loadMoreArticleAction($page)
-    {
-        $pageData = $this->createPageObject("main");
-        $limit = 4;
-        $offset = ($limit * ($page - 1)) + 1;
-
-        $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
-        $articlesObj = $repository->findArticlesOffsetLimit($offset, $limit);
-        $pageData['posts'] = $articlesObj;
-
-        $content = $this->renderView('VelesHomeWorkBundle:HomeWork:Modules/articles_template.html.twig', $pageData);
-
-        return new Response($content);
     }
 
     public function getArticleData($aid)
@@ -209,9 +197,9 @@ class HomeWorkController extends Controller
         $pageData = $this->createPageObject("category");
 
         if(empty($catid)){
-            $pageData['oneCategory']['error'] = "No category id =(";
+            $pageData['resultData']['error'] = "No category id =(";
         }else{
-            $pageData['oneCategory'] = $this->getCategoryData($catid);
+            $pageData['resultData'] = $this->getCategoryData($catid);
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:category.html.twig', $pageData);
@@ -236,9 +224,9 @@ class HomeWorkController extends Controller
         $pageData = $this->createPageObject("tag");
 
         if(empty($tid)){
-            $pageData['oneTag']['error'] = "No tag id =(";
+            $pageData['resultData']['error'] = "No tag id =(";
         }else{
-            $pageData['oneTag'] = $this->getTagData($tid);
+            $pageData['resultData'] = $this->getTagData($tid);
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:tag.html.twig', $pageData);
@@ -285,7 +273,7 @@ class HomeWorkController extends Controller
     public function searchResultAction($keyword = "")
     {
         if(empty($keyword)){
-            $pageData['search']['error'] = "No keyword for search =(";
+            $pageData['resultData']['error'] = "No keyword for search =(";
         }else{
             $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
             $searchQuery = $repository->createQueryBuilder('a')
@@ -301,7 +289,6 @@ class HomeWorkController extends Controller
                 $this->get('request')->query->get('page', $p_options['start_from']),$p_options['search_result_per_page']
             );
 
-            $pageData['search'] = $searchQuery;
             $pageData['kwd'] = $keyword;
             $pageData['pagination'] = $pagination;
         }

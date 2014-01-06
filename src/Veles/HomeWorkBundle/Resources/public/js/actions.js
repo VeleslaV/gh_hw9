@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(".title h3 a").click(function(event){
+    $(".title h3 a, .articles ul.nav li a").click(function(event){
         event.preventDefault();
         var linkLocation = this.href;
         var linkId = linkLocation.match(/\/article\/(.*)/)[1];
@@ -14,7 +14,7 @@ $(document).ready(function(){
          });
     });
 
-    $("a#showMoreArticles").click(function(event){
+    $("a#showMoreArticles").click(function(){
         var currentPage = $("span#pageNum").html();
         var page = parseInt(currentPage) + 1;
         var path = Routing.generate('_load_more_article', { page: page });

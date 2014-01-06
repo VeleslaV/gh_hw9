@@ -5,6 +5,7 @@ namespace Veles\HomeWorkBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Veles\HomeWorkBundle\Controller\HomeWork;
 
 class AjaxController extends Controller
 {
@@ -23,5 +24,19 @@ class AjaxController extends Controller
         $response = array("code" => 100, "success" => true, "id" => $articleId);
 
         return new Response(json_encode($response));
+    }
+
+    public function ajaxLoadMoreArticleAction($page)
+    {
+        $limit = 4;
+        $offset = ($limit * ($page - 1)) + 1;
+
+        $repository = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
+        $articlesObj = $repository->findArticlesOffsetLimit($offset, $limit);
+        $pageData['posts'] = $articlesObj;
+
+        $content = $this->renderView('VelesHomeWorkBundle:HomeWork:Modules/articles_template.html.twig', $pageData);
+
+        return new Response($content);
     }
 }

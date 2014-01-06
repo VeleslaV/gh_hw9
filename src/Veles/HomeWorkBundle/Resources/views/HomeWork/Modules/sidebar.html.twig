@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="well sidebar-nav">
-        <div class="wrapper">
+        <div class="wrapper articles">
             <ul class="nav nav-list">
                 <li class="nav-header">Last Articles</li>
                 {% for article in latestArticles %}
@@ -8,7 +8,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="wrapper">
+        <div class="wrapper articles">
             <ul class="nav nav-list">
                 <li class="nav-header">Most viewed articles</li>
                 {% for article in mostViewedArticles %}
@@ -16,7 +16,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="wrapper">
+        <div class="wrapper comments">
             <ul class="nav nav-list">
                 <li class="nav-header">Last post from guest book</li>
                 {% for comment in latestComments %}
@@ -24,7 +24,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <div class="wrapper">
+        <div class="wrapper tags">
             <ul class="nav nav-list">
                 <li class="nav-header">Tags</li>
                 {% for tag in allTags %}

@@ -4,8 +4,8 @@
     {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'pageName': sectionData.title}) }}
     <div class="">
         <p>
-            <img class="img-circle-big" src="https://cdn1.iconfinder.com/data/icons/UltraBuuf/128/Thor.png">
-            {{ sectionData.description }}
+            <img class="img-circle-big" src="{{ 'bundles/veleshomework/images/odin.png' | imagine_filter('big_thumb') }}" />
+            {{ sectionData.description | raw }}
             <div class="clr"></div>
         </p>
     </div>

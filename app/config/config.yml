@@ -63,6 +63,24 @@ assetic:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.min.js
             output: js/bootstrap.min.js
 
+liip_imagine:
+    filter_sets:
+        my_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [110, 110], mode: outbound }
+        big_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [250, 250], mode: outbound }
+        min_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }
+
+web_profiler:
+    intercept_redirects: false
+
 # Doctrine Configuration
 doctrine:
     dbal:

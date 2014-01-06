@@ -1,29 +1,26 @@
 {% extends 'VelesHomeWorkBundle:HomeWork:index.html.twig' %}
 
 {% block container %}
-    {% if oneComment.error is defined %}
-        <b>{{ oneComment.error  }}</b>
-    {% elseif oneComment.id %}
+    {% if resultData.error is defined %}
+        <b>{{ resultData.error  }}</b>
+    {% elseif resultData.id %}
         {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Gbook', 'pageName': sectionData.title}) }}
         <div class="well">
-            <p>
-                {{ sectionData.description }}
-                <hr class="light"/>
-                <div class="single_comment">
-                    <div class="">
-                        <div class="user_picture">
-                            <img class="img-circle" src="https://cdn1.iconfinder.com/data/icons/UltraBuuf/128/Thor.png">
-                        </div>
-                        <div class="user_name">
-                            <h4><b>{{ oneComment.name }}</b></h4>
-                            {{ oneComment.email }}
-                        </div>
-                        <div class="clr"></div>
-                    </div><br>
-                    <div>{{ oneComment.message }}</div>
-                </div>
-                <div class="clr"></div>
-            </p>
+            <div class="single_comment">
+                <div class="">
+                    <div class="user_picture">
+                        <img class="img-circle" src="{{ 'bundles/veleshomework/images/thor.png' | imagine_filter('min_thumb') }}" />
+                    </div>
+                    <div class="user_name">
+                        <h4><b>{{ resultData.name }}</b></h4>
+                        {{ resultData.email }}
+                    </div>
+                    <div class="clr"></div>
+                </div><br>
+                <div>{{ resultData.message }}</div>
+            </div>
+            <div class="clr"></div>
+            <hr class="light"/>
         </div>
     {% endif %}
 {% endblock container %}

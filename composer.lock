@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3b61c191670a571dceb518caa91831c7",
+    "hash": "e9ea49f759c3c890e0f3b5229b8fccb5",
     "packages": [
         {
             "name": "components/jquery",
@@ -768,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "5d83a66d8da927cb71d1550bb51466a6501f13f8"
+                "reference": "199cb62a80c7723942d14107c23bc45168e4241c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/5d83a66d8da927cb71d1550bb51466a6501f13f8",
-                "reference": "5d83a66d8da927cb71d1550bb51466a6501f13f8",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/199cb62a80c7723942d14107c23bc45168e4241c",
+                "reference": "199cb62a80c7723942d14107c23bc45168e4241c",
                 "shasum": ""
             },
             "require": {
@@ -820,7 +820,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2014-01-01 13:52:46"
+            "time": "2014-01-04 09:19:33"
         },
         {
             "name": "doctrine/orm",
@@ -895,17 +895,17 @@
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "1.5.0",
+            "version": "1.5.2",
             "target-dir": "FOS/JsRoutingBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "71420d045b33584dc280bb05d28bafc0dbe3148b"
+                "reference": "4ae129b7fbb073c6a22d56d0ff2e971e0326512e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/71420d045b33584dc280bb05d28bafc0dbe3148b",
-                "reference": "71420d045b33584dc280bb05d28bafc0dbe3148b",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/4ae129b7fbb073c6a22d56d0ff2e971e0326512e",
+                "reference": "4ae129b7fbb073c6a22d56d0ff2e971e0326512e",
                 "shasum": ""
             },
             "require": {
@@ -918,7 +918,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -948,7 +948,7 @@
                 "javascript",
                 "routing"
             ],
-            "time": "2013-12-16 17:19:25"
+            "time": "2014-01-05 18:32:52"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -956,12 +956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "97386dda06ce50f3c20e2b6658e668679d637f41"
+                "reference": "20d0d03e79dc5e527c97ae5de35e03bde1984bc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/97386dda06ce50f3c20e2b6658e668679d637f41",
-                "reference": "97386dda06ce50f3c20e2b6658e668679d637f41",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/20d0d03e79dc5e527c97ae5de35e03bde1984bc7",
+                "reference": "20d0d03e79dc5e527c97ae5de35e03bde1984bc7",
                 "shasum": ""
             },
             "require": {
@@ -1028,20 +1028,20 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-12-26 15:40:18"
+            "time": "2014-01-04 15:29:49"
         },
         {
             "name": "imagine/imagine",
-            "version": "dev-develop",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "5e013323dacbb7d6ab0c0d55692e6b75d1fb30d2"
+                "reference": "f64ec666baaa800edcbf237db41121a569230709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/5e013323dacbb7d6ab0c0d55692e6b75d1fb30d2",
-                "reference": "5e013323dacbb7d6ab0c0d55692e6b75d1fb30d2",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709",
                 "shasum": ""
             },
             "require": {
@@ -1056,11 +1056,6 @@
                 "ext-imagick": "to use the Imagick implementation"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "0.6-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Imagine": "lib/"
@@ -1085,7 +1080,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2013-12-23 10:54:18"
+            "time": "2013-07-10 17:25:36"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1379,6 +1374,61 @@
                 "minification"
             ],
             "time": "2013-07-19 00:03:27"
+        },
+        {
+            "name": "liip/imagine-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/ImagineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipImagineBundle.git",
+                "reference": "66770454617f8281b00508d6cea89a3e8872c30e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/66770454617f8281b00508d6cea89a3e8872c30e",
+                "reference": "66770454617f8281b00508d6cea89a3e8872c30e",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.5.*",
+                "php": ">=5.3.2",
+                "symfony/filesystem": ">=2.0.16,~2.0",
+                "symfony/finder": ">=2.0.16,~2.0",
+                "symfony/framework-bundle": ">=2.0.16,~2.0",
+                "symfony/options-resolver": ">=2.0.16,~2.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.1",
+                "symfony/yaml": ">=2.0.16,~2.0",
+                "twig/twig": ">=1.0,<2.0-dev"
+            },
+            "suggest": {
+                "twig/twig": ">=1.0,<2.0-dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Liip\\ImagineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip and other contributors",
+                    "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
+                }
+            ],
+            "description": "This Bundle assists in imagine manipulation using the imagine library",
+            "homepage": "http://liip.ch",
+            "keywords": [
+                "image",
+                "imagine"
+            ],
+            "time": "2013-12-05 10:26:20"
         },
         {
             "name": "monolog/monolog",
@@ -1988,16 +2038,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.8",
+            "version": "v2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b0b421908d569e5024372ded65857707c409e0f7"
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b0b421908d569e5024372ded65857707c409e0f7",
-                "reference": "b0b421908d569e5024372ded65857707c409e0f7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
+                "reference": "ee1e0f2ef882ccd6a53ff91e5ffc39a22b6a6b74",
                 "shasum": ""
             },
             "require": {
@@ -2092,7 +2142,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-12-16 14:36:05"
+            "time": "2014-01-05 01:24:54"
         },
         {
             "name": "twbs/bootstrap",
@@ -2285,11 +2335,11 @@
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
         "gedmo/doctrine-extensions": 20,
-        "imagine/imagine": 20,
         "sunra/php-simple-html-dom-parser": 20,
         "symfony/dependency-injection": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "friendsofsymfony/jsrouting-bundle": 0
+        "friendsofsymfony/jsrouting-bundle": 0,
+        "liip/imagine-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

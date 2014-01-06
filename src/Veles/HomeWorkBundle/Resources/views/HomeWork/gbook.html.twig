@@ -43,7 +43,7 @@
                 <div class="col-8 col-sm-8 col-lg-6 comment_wrapper">
                     <div class="user_data_wrapper">
                         <div class="user_picture">
-                            <img class="img-circle" src="https://cdn1.iconfinder.com/data/icons/UltraBuuf/128/Thor.png">
+                            <img class="img-circle" src="{{ 'bundles/veleshomework/images/thor.png' | imagine_filter('min_thumb') }}" />
                         </div>
                         <div class="user_name">
                             <h4>#{{ comment.id }} <b>{{ comment.name }}</b></h4>
