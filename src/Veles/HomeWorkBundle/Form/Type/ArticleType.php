@@ -22,16 +22,16 @@ class ArticleType extends AbstractType
                 'data' => '0',
                 'read_only' => true,
             ))
-            ->add('tags', 'entity', [
+            ->add('tags', 'entity', array(
                 'class' => 'VelesHomeWorkBundle:Tag',
                 'property' => 'title',
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
                 'query_builder' => function(\Veles\HomeWorkBundle\Entity\TagRepository $er){
                     return $er->createQueryBuilder('t')
                     ->orderBy('t.name', 'DESC');
                 },
-            ])
+            ))
             ->add('body', 'textarea');
     }
 

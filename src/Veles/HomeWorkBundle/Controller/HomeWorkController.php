@@ -174,11 +174,10 @@ class HomeWorkController extends Controller
 
         if($form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
-            //$tags_check = $article->getTags();
-            //var_dump($tags_check);
+            $tags = $article->getTags();
 
             $article
-                //->setTags($tags_check)
+                ->setTags($tags)
                 ->setImg("no_img.png")
                 ->setCreated(new \DateTime());
 
