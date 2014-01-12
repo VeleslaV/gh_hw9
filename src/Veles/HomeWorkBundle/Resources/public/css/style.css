@@ -182,6 +182,7 @@ span.current {
 }
 .success {
     color: #00aa00;
+    text-align: center;
 }
 .sidebar {
     margin: 0px 0px 0px 0px;

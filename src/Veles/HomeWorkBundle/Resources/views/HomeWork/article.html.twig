@@ -1,6 +1,15 @@
 {% extends 'VelesHomeWorkBundle:HomeWork:index.html.twig' %}
 
 {% block container %}
+    <script>
+        $(document).ready(function(){
+            var linkLocation = document.URL;
+            var linkId = linkLocation.match(/\/article\/(.*)/)[1];
+            var path = Routing.generate('_ajax_update_article_views', { });
+
+            $.post(path,{ "id": linkId }, function(request){ });
+        });
+    </script>
     {% if resultData.error is defined %}
         <b>{{ resultData.error  }}</b>
     {% else %}

@@ -77,7 +77,7 @@ class HomeWorkController extends Controller
             $manager->persist($gbook);
             $manager->flush();
 
-            return $this->redirect($this->generateUrl('_comment_success'));
+            return $this->redirect($this->generateUrl('_post_success'));
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:gbook.html.twig', $pageData);
@@ -190,7 +190,7 @@ class HomeWorkController extends Controller
             $manager->persist($article);
             $manager->flush();
 
-            return $this->redirect($this->generateUrl('_comment_success'));
+            return $this->redirect($this->generateUrl('_post_success'));
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:article_add.html.twig', $pageData);

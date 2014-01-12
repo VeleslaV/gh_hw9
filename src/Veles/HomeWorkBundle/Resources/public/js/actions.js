@@ -1,19 +1,4 @@
 $(document).ready(function(){
-    $(".title h3 a, .articles ul.nav li a").click(function(event){
-        event.preventDefault();
-        var linkLocation = this.href;
-        var linkId = linkLocation.match(/\/article\/(.*)/)[1];
-        var path = Routing.generate('_ajax_update_article_views', { });
-
-
-         $.post(path,{ "id": linkId} ,function(request){
-             var temp = JSON.parse(request);
-             if(temp.code == 100 || temp.success){
-                 window.location = linkLocation;
-             }
-         });
-    });
-
     $("a#showMoreArticles").click(function(){
         var currentPage = $("span#pageNum").html();
         var page = parseInt(currentPage) + 1;

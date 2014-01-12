@@ -1,6 +1,8 @@
 _main:
-        pattern: /main/
+        pattern: /
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:main}
+        options:
+            expose: true
 
 _about:
         pattern: /about/
@@ -12,7 +14,9 @@ _comment:
 _single_comment:
         pattern: /comment/{cid}
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneComment}
-_comment_success:
+        options:
+            expose: true
+_post_success:
         pattern: /success/
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:successAdd}
 
@@ -22,6 +26,8 @@ _article:
 _single_article:
         pattern: /article/{aid}
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:oneArticle}
+        options:
+            expose: true
 _add_article:
         pattern: /article/add/
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:addArticle}
@@ -43,6 +49,8 @@ _single_tag:
 _gbook:
         pattern: /gbook/
         defaults: {_controller: VelesHomeWorkBundle:HomeWork:gbook}
+        options:
+            expose: true
 
 _ajax_update_article_views:
         pattern: /ajax/update/article_views/

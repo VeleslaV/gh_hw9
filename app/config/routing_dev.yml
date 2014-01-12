@@ -19,4 +19,4 @@ _acme_demo:
 
 _veles_gh_homework:
     resource: "@VelesHomeWorkBundle/Resources/config/routing.yml"
-    prefix:   /hw
+    prefix:   /blog
