@@ -2,11 +2,11 @@
 
 namespace Veles\HomeWorkBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Veles\HomeWorkBundle\Controller\HomeWorkController;
 
-class HomeWorkControllerTest extends WebTestCase
+class HomeWorkControllerTest extends \PHPUnit_Framework_TestCase
 {
-    public function testIndex()
+    public function testCreatePageObject()
     {
 
     }
