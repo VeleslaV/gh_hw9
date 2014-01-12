@@ -120,6 +120,8 @@ class HomeWorkController extends Controller
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Articles >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public function latestArticleAction()
     {
+        $pageData = array();
+
         $repositoryArticles = $this->getDoctrine()->getRepository('VelesHomeWorkBundle:Article');
         $articlesObj = $repositoryArticles->findLatestArticlesLimit("6");
         $pageData['latestArticles'] = $articlesObj;
@@ -140,6 +142,8 @@ class HomeWorkController extends Controller
 
     public function oneArticleAction($aid = "")
     {
+        $pageData = array();
+
         if(empty($aid)){
             $pageData['resultData']['error'] = "No article id =(";
         }else{
@@ -164,6 +168,8 @@ class HomeWorkController extends Controller
 
     public function addArticleAction(Request $request)
     {
+        $pageData = array();
+
         $pageData['sectionData']['title'] = "Add new";
 
         $article = new Article();
@@ -247,6 +253,8 @@ class HomeWorkController extends Controller
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Search >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public function searchFormAction(Request $request)
     {
+        $pageData = array();
+
         $form = $this->createFormBuilder()
             ->add('keyword', 'text', array(
                 'constraints' => array(
@@ -271,6 +279,8 @@ class HomeWorkController extends Controller
 
     public function searchResultAction($keyword = "")
     {
+        $pageData = array();
+
         if(empty($keyword)){
             $pageData['resultData']['error'] = "No keyword for search =(";
         }else{

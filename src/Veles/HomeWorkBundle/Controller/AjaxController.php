@@ -28,6 +28,8 @@ class AjaxController extends Controller
 
     public function ajaxLoadMoreArticleAction($page)
     {
+        $pageData = array();
+
         $limit = 4;
         $offset = ($limit * ($page - 1)) + 1;
 
