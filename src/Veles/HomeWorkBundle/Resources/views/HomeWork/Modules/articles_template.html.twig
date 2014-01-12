@@ -11,7 +11,7 @@
         {% if app.request.get('_route') == "_single_article" %}
             {{ data.body | raw }}
         {% else %}
-            {{ data.body|cutString(700) | raw }}
+            {{ data.body|cutString(1200) | raw }}
         {% endif %}
         <div class="clr"></div>
         <div class="tags_container">

@@ -227,6 +227,16 @@ span.current {
     font-size: 13px;
     text-align: right;
 }
+.tags ul.nav {
+    text-align: center;
+}
+.tags ul.nav li {
+    text-align: left;
+}
+.tags ul.nav a {
+    margin: 5px 10px;
+    display: inline-block;
+}
 .check{
     margin: 0px 10px 0px 0px;
     height: auto;

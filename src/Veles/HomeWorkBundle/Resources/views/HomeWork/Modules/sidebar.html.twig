@@ -28,9 +28,11 @@
             <ul class="nav nav-list">
                 <li class="nav-header">Tags</li>
                 {% for tag in allTags %}
-                    <a href="{{ path('_single_tag', {'tid': tag.id}) }}">{{ tag.title }}</a>
+                    {{ tag.name|tagSize(tag.id, path('_single_tag', {'tid': tag.name})) | raw }}
                 {% endfor %}
             </ul>
+            <hr />
+            <div id="example" style="width: auto; height: 150px;"></div>
         </div>
     </div>
 </div>

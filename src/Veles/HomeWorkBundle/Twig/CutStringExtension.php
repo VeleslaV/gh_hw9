@@ -2,7 +2,7 @@
 
 namespace Veles\HomeWorkBundle\Twig;
 
-class VelesExtension extends \Twig_Extension {
+class CutStringExtension extends \Twig_Extension {
 
     public function getName()
     {
@@ -16,10 +16,10 @@ class VelesExtension extends \Twig_Extension {
         );
     }
 
-    public function cutString($number, $length = 150)
+    public function cutString($text, $length = 250)
     {
-        $price = substr($number, 0, $length)." ... ";
+        $string = substr($text, 0, $length)." ... ";
 
-        return $price;
+        return $string;
     }
 }

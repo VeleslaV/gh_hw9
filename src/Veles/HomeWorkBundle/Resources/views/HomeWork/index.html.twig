@@ -11,12 +11,12 @@
 
         {% block stylesheets %}
             <!-- Bootstrap core CSS -->
-            {% stylesheets '@bootstrap_min_css'  filter='cssrewrite' %}
+            {% stylesheets '@bootstrap_min_css' %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
 
             <!-- Custom styles for this template -->
-            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/*' filter='cssrewrite' %}
+            {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/style.css' output='css/style.css' %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
         {% endblock stylesheets %}
@@ -33,11 +33,16 @@
             {% endjavascripts %}
 
             <!-- Custom scripts for this template -->
-            {% javascripts '@VelesHomeWorkBundle/Resources/public/js/*' %}
+            {% javascripts '@VelesHomeWorkBundle/Resources/public/js/actions.js' output='js/actions.js' %}
                 <script type="text/javascript" src="{{asset_url}}"></script>
-                <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-                <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
             {% endjavascripts %}
+            {% javascripts '@VelesHomeWorkBundle/Resources/public/js/jquery.highlight.js' output='js/jquery.highlight.js' %}
+                <script type="text/javascript" src="{{asset_url}}"></script>
+            {% endjavascripts %}
+
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
         {% endblock javascripts %}
     </head>
     <body>
@@ -52,7 +57,7 @@
         {% block body %}
             <div id="mainWrapper" class="container">
                 <div class="col-xs-12 {% if app.request.get('_route') != "_gbook" %}col-sm-9{% endif %}">
-                    {% block container %}{% endblock container %}
+                        {% block container %}{% endblock container %}
                 </div>
                 {% if app.request.get('_route') != "_gbook" %}
                     <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
