@@ -8,6 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Article;
+use Veles\HomeWorkBundle\Entity\Image;
 
 class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -24,7 +25,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
             $article
                 ->setCategory($this->getReference($value['category']))
                 ->setTitle($value['title'])
-                ->setImg($value['img'])
+                ->setImg($this->getReference($value['img']))
                 ->setBody($value['body'])
                 ->setCreated(new \DateTime())
                 ->setTags($this->getReferencesFromArray($value['tags']))
@@ -43,7 +44,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 5;
+        return 6;
     }
 
     protected function getReferencesFromArray(array $array)

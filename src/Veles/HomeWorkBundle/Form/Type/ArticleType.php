@@ -18,6 +18,9 @@ class ArticleType extends AbstractType
             ))
             ->add('title', 'text')
             //->add('img', 'text')
+            ->add('img', 'vlabs_file', array(
+                'required' => false
+            ))
             ->add('views', 'integer', array(
                 'data' => '0',
                 'read_only' => true,

@@ -79,8 +79,12 @@ liip_imagine:
             filters:
                 thumbnail: { size: [50, 50], mode: outbound }
 
-web_profiler:
-    intercept_redirects: false
+vlabs_media:
+    image_cache:
+        cache_dir: files/cache
+    mapping:
+        image_entity:
+          class: Veles\HomeWorkBundle\Entity\Image
 
 # Doctrine Configuration
 doctrine:

@@ -5,6 +5,7 @@ namespace Veles\HomeWorkBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Vlabs\MediaBundle\Annotation\Vlabs;
 
 /**
  * Article
@@ -40,13 +41,6 @@ class Article
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="img", type="string", length=255)
-     */
-    protected $img;
-
-    /**
-     * @var string
      * @Assert\NotBlank()
      *
      * @ORM\Column(name="body", type="text")
@@ -55,6 +49,7 @@ class Article
 
     /**
      * @var \DateTime
+     * @Assert\Type("\DateTime")
      *
      * @ORM\Column(name="created", type="datetime")
      */
@@ -73,6 +68,18 @@ class Article
      * @ORM\Column(name="views", type="integer")
      */
     protected $views;
+
+    /**
+     * @var VlabsFile
+     *
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"}, orphanRemoval=true))
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="img", referencedColumnName="id")
+     * })
+     *
+     * @Vlabs\Media(identifier="image_entity", upload_dir="files/images")
+     */
+    private $img;
 
     public function __construct()
     {
@@ -133,29 +140,6 @@ class Article
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set img
-     *
-     * @param string $img
-     * @return Article
-     */
-    public function setImg($img)
-    {
-        $this->img = $img;
-
-        return $this;
-    }
-
-    /**
-     * Get img
-     *
-     * @return string
-     */
-    public function getImg()
-    {
-        return $this->img;
     }
 
     /**
@@ -258,5 +242,28 @@ class Article
     public function getViews()
     {
         return $this->views;
+    }
+
+    /**
+     * Set img
+     *
+     * @param $img
+     * @return $this
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return Image
+     */
+    public function getImg()
+    {
+        return $this->img;
     }
 }

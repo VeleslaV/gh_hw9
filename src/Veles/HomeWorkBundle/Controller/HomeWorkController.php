@@ -77,7 +77,7 @@ class HomeWorkController extends Controller
             $manager->persist($gbook);
             $manager->flush();
 
-            return $this->redirect($this->generateUrl('_post_success'));
+            return $this->redirect($this->generateUrl('_gbook'));
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:gbook.html.twig', $pageData);
@@ -184,13 +184,12 @@ class HomeWorkController extends Controller
 
             $article
                 ->setTags($tags)
-                ->setImg("no_img.png")
                 ->setCreated(new \DateTime());
 
             $manager->persist($article);
             $manager->flush();
 
-            return $this->redirect($this->generateUrl('_post_success'));
+            return $this->redirect($this->generateUrl('_main'));
         }
 
         return $this->render('VelesHomeWorkBundle:HomeWork:article_add.html.twig', $pageData);

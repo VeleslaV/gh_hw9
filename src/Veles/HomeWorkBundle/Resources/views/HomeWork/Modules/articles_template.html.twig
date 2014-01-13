@@ -9,8 +9,7 @@
             <b>Published:</b> {{ data.created.date }}<br>
             <b>Views:</b> <span class="views">{{ data.views }}</span>
         </h6>
-        {% set image = 'bundles/veleshomework/images/' ~ data.img %}
-        <img class="img-circle-middle" src="{{ image | imagine_filter('my_thumb') }}" />
+        <img class="img-circle-middle" src="{{ data.img | vlabs_filter('resize', { 'width' : 120, 'height' : 120 }) | vlabs_media('default') }}" />
         {% if app.request.get('_route') == "_single_article" %}
             {{ data.body | raw }}
         {% else %}

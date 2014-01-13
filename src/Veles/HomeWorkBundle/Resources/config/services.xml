@@ -11,6 +11,5 @@
             <argument type="service" id="doctrine.orm.entity_manager"/>
             <tag name="twig.extension" />
         </service>
-
     </services>
 </container>

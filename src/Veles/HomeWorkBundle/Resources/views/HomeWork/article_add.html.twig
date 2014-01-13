@@ -20,6 +20,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Image</label>
+                    <div class="col-xs-10">
+                        {{ form_widget(form.img, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.img) }}
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-2 control-label">Body</label>
                     <div class="col-xs-10">
                         {{ form_widget(form.body, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.body) }}
