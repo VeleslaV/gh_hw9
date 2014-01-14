@@ -19,6 +19,10 @@
             {% stylesheets '@VelesHomeWorkBundle/Resources/public/css/style.css' output='css/style.css' %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
             {% endstylesheets %}
+
+            {% stylesheets '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+            {% endstylesheets %}
         {% endblock stylesheets %}
 
         {% block javascripts %}

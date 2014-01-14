@@ -257,6 +257,11 @@ input#form_keyword {
     height: 20px;
 }
 
+.fos_comment_comment_new_form textarea{
+    width: 600px;
+    height: 200px;
+}
+
 #footer {
     border-radius: 0px;
     border: 0px;

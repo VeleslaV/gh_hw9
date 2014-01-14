@@ -32,11 +32,14 @@
         "knplabs/knp-gaufrette-bundle": "dev-master",
         "knplabs/gaufrette": "0.2.*@dev",
         "friendsofsymfony/jsrouting-bundle": "@stable",
+        "friendsofsymfony/comment-bundle": "2.0.*@dev",
+        "friendsofsymfony/rest-bundle": "1.1.*",
         "liip/imagine-bundle": "0.11.1",
         "phpunit/phpunit": "3.7.*",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "vlabs/media-bundle": "dev-master",
-        "imagine/imagine": "0.4.1"
+        "imagine/imagine": "0.4.1",
+        "jms/serializer-bundle": "0.13.*@dev"
 
 
     },

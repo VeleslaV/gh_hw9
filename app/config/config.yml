@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator: ~
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -31,7 +31,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ VelesHomeWorkBundle ]
+    bundles:        [ VelesHomeWorkBundle, FOSCommentBundle ]
     read_from:      %kernel.root_dir%/Resources/views/
     write_to:       %kernel.root_dir%/../web/
 
@@ -63,6 +63,13 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.min.js
             output: js/bootstrap.min.js
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Veles\HomeWorkBundle\Entity\Comment
+            thread: Veles\HomeWorkBundle\Entity\Thread
 
 liip_imagine:
     filter_sets:

@@ -16,6 +16,9 @@
         {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Articles', 'pageName': resultData.article.title}) }}
         <div class="">
             {{ include ('VelesHomeWorkBundle:HomeWork/Modules:articles_template.html.twig', {'posts': resultData}) }}
+            <hr />
+            {{ include ('FOSCommentBundle:Thread:async.html.twig', {'id': resultData.article.id}) }}
+            <hr />
         </div>
     {% endif %}
 {% endblock container %}
