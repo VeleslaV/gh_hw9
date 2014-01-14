@@ -39,7 +39,9 @@
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "vlabs/media-bundle": "dev-master",
         "imagine/imagine": "0.4.1",
-        "jms/serializer-bundle": "0.13.*@dev"
+        "jms/serializer-bundle": "0.13.*@dev",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
 
 
     },

@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @VelesHomeWorkBundle/Resources/config/services.xml }
+    - { resource: @VelesHomeWorkBundle/Resources/config/admin.xml }
 
 framework:
     #esi:             ~
@@ -70,6 +71,35 @@ fos_comment:
         model:
             comment: Veles\HomeWorkBundle\Entity\Comment
             thread: Veles\HomeWorkBundle\Entity\Thread
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        # Your other blocks
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.rss:
+
+        # Some specific block from the SonataMediaBundle
+        #sonata.media.block.media:
+        #sonata.media.block.gallery:
+        #sonata.media.block.feature_media:
+
+sonata_admin:
+    title:      Veles HomeWork Bundle
+    title_logo: bundles/veleshomework/images/veles_logo.png
+
+knp_menu:
+    twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
+        template: knp_menu.html.twig
+    templating: false # if true, enables the helper for PHP templates
+    default_renderer: twig # The renderer to use, list is also available by default
 
 liip_imagine:
     filter_sets:
