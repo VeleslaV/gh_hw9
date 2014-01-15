@@ -95,6 +95,18 @@ sonata_admin:
     title:      Veles HomeWork Bundle
     title_logo: bundles/veleshomework/images/veles_logo.png
 
+    #security:
+    #    handler: sonata.admin.security.handler.role
+    #    acl_user_manager: fos_user.user_manager # Name of the user manager service used to retrieve ACL users
+
+    options:
+        html5_validate: false # does not use html5 validation
+        confirm_exit:   false # disable confirmation when quitting with unsaved changes
+        pager_links:    5     # pager max links to display
+
+    # set to true to persist filter settings per admin module in the user's session
+    persist_filters: false
+
 knp_menu:
     twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
         template: knp_menu.html.twig

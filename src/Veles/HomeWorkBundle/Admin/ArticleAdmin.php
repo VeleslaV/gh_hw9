@@ -13,12 +13,29 @@ class ArticleAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array('label' => 'Article Title'))
             ->add('category', 'entity', array(
                 'class' => 'Veles\HomeWorkBundle\Entity\Category',
                 'property' => 'title'
             ))
+            ->add('title', 'text', array('label' => 'Article Title'))
+            ->add('img', 'vlabs_file', array(
+                'required' => false
+            ))
+            ->add('views', 'hidden', array(
+                'data' => '0',
+                'read_only' => true
+            ))
             ->add('body')
+            ->add('tags', 'entity', array(
+                'class' => 'VelesHomeWorkBundle:Tag',
+                'property' => 'title',
+                'multiple' => true,
+                'expanded' => false,
+                'query_builder' => function(\Veles\HomeWorkBundle\Entity\TagRepository $er){
+                    return $er->createQueryBuilder('t')
+                        ->orderBy('t.title', 'DESC');
+                },
+            ))
             ->add('created')
         ;
     }
@@ -35,8 +52,9 @@ class ArticleAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->addIdentifier('id')
             ->addIdentifier('title')
+            ->add('img')
             ->add('created')
         ;
     }

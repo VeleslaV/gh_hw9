@@ -22,6 +22,11 @@ class Image extends VlabsFile
      */
     private $path;
 
+    public function __toString()
+    {
+        return ("".$this->path."");
+    }
+
     /**
      * Set path
      *

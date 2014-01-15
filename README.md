@@ -3,7 +3,12 @@
 
 GeekHub homework #9
 ========================
-### Creating blog with Symfony2 framework
+###### Creating blog with Symfony2 framework
+
+Live preview
+========================
+### http://veleslav.pp.ua/
+
 >.
 
 >.

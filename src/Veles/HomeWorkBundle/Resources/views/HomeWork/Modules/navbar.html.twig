@@ -18,7 +18,14 @@
                     <a href="{{ path('_add_article') }}">Add new article</a>
                 </li>
             </ul>
-            {{ render(controller('VelesHomeWorkBundle:HomeWork:searchForm')) }}
+            <div class="navbar-right">
+                {{ render(controller('VelesHomeWorkBundle:HomeWork:searchForm')) }}
+            </div>
+            <ul class="nav navbar-nav navbar-right" style="padding-right: 15px;">
+                <li {% if app.request.get('_route') == "sonata_admin_dashboard" %}class="active"{% endif %}>
+                    <a href="{{ path('sonata_admin_dashboard') }}" target="_blank">Admin dashboard</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
