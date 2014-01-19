@@ -41,7 +41,8 @@
         "imagine/imagine": "0.4.1",
         "jms/serializer-bundle": "0.13.*@dev",
         "sonata-project/admin-bundle": "dev-master",
-        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
 
 
     },

@@ -1,0 +1,24 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'pageName': 'Profile'}) }}
+
+<div class="profile-form">
+    <div class="form_container" style="margin-left: 0px;">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-4">{{ 'profile.show.username'|trans }}:</label>
+                <div class="col-md-8">{{ user.username }}</div>
+                <div class="clr"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">{{ 'profile.show.email'|trans }}:</label>
+                <div class="col-md-8">{{ user.email }}</div>
+                <div class="clr"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <a class="btn btn-primary" href="{{ path('fos_user_profile_edit', {}) }}">{{ 'profile.edit.edit'|trans({}, 'FOSUserBundle') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

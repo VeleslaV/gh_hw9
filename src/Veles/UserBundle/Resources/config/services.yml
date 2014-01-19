@@ -1,0 +1,7 @@
+parameters:
+#    veles_user.example.class: Veles\UserBundle\Example
+
+services:
+#    veles_user.example:
+#        class: %veles_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

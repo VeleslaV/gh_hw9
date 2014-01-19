@@ -16,6 +16,16 @@ $(document).ready(function(){
         return false;
     });
 
+    $(document).on("click", ".slide_visible", function(){
+        $(this).addClass("slide_hidden").removeClass("slide_visible");
+        $("div#admin_bar").animate({ 'margin-top':'-25px' }, "500");
+    });
+
+    $(document).on("click", ".slide_hidden", function(){
+        $(this).addClass("slide_visible").removeClass("slide_hidden");
+        $("div#admin_bar").animate({ 'margin-top':'0px' }, "500");
+    });
+
     $("form#searchForm").submit(function(){
         var keywordData;
         var inputElement = "input#form_keyword";

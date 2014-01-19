@@ -72,6 +72,11 @@ fos_comment:
             comment: Veles\HomeWorkBundle\Entity\Comment
             thread: Veles\HomeWorkBundle\Entity\Thread
 
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Veles\UserBundle\Entity\User
+
 sonata_block:
     default_contexts: [cms]
     blocks:

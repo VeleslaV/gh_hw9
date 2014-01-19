@@ -1,5 +1,21 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    {% if is_granted('ROLE_ADMIN') %}
+        <div id="admin_bar">
+            <div class="container">
+                <img src="{{ 'bundles/veleshomework/images/slide_up.png' | imagine_filter('min_thumb') }}" class="slide_visible">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <img src="{{ 'bundles/veleshomework/images/settings.png' | imagine_filter('min_thumb') }}" class="settings_img">
+                    </li>
+                    <li {% if app.request.get('_route') == "sonata_admin_dashboard" %}class="active"{% endif %}>
+                        <a href="{{ path('sonata_admin_dashboard') }}" target="_blank">Admin dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
     <div class="container">
+
         <div class="navbar-header">
             <a class="navbar-brand">My Blog</a>
         </div>
@@ -15,17 +31,22 @@
                     <a href="{{ path('_gbook') }}">Guest book</a>
                 </li>
                 <li {% if app.request.get('_route') == "_add_article" %}class="active"{% endif %}>
-                    <a href="{{ path('_add_article') }}">Add new article</a>
+                    <a href="{{ path('_add_article') }}">New article</a>
                 </li>
             </ul>
             <div class="navbar-right">
                 {{ render(controller('VelesHomeWorkBundle:HomeWork:searchForm')) }}
             </div>
-            <ul class="nav navbar-nav navbar-right" style="padding-right: 15px;">
-                <li {% if app.request.get('_route') == "sonata_admin_dashboard" %}class="active"{% endif %}>
-                    <a href="{{ path('sonata_admin_dashboard') }}" target="_blank">Admin dashboard</a>
-                </li>
-            </ul>
+            <div class="navbar-right">
+                <div class="nav_user_data">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ 'layout.logged_in_as'|trans({}, 'FOSUserBundle') }} <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> |
+                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>

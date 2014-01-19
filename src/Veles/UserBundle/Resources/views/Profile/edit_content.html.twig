@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'pageName': 'Edit Profile'}) }}
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" role="form" class="fos_user_profile_edit form-horizontal" novalidate="novalidate">
+    <div class="form_container" style="margin-left: 0px;">
+        {{ form_widget(form._token, {'attr': {'hidden': 'hidden' }}) }}
+        {{ form_errors(form._token) }}
+        <div class="row">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">{{ form_label(form.username) }}</label>
+                <div class="col-xs-8">
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control' }}) }}
+                    {{ form_errors(form.username) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">{{ form_label(form.email) }}</label>
+                <div class="col-xs-8">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control' }}) }}
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">{{ form_label(form.current_password) }}</label>
+                <div class="col-xs-8">
+                    {{ form_widget(form.current_password, {'attr': {'class': 'form-control' }}) }}
+                    {{ form_errors(form.current_password) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

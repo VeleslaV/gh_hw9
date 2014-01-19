@@ -5,10 +5,11 @@
             <h5>Category: <a href="{{ path('_single_category', {'catid': data.category.name}) }}">{{ data.category.title }}</a></h5>
             <div class="clr"></div>
         </div>
-        <h6>
-            <b>Published:</b> {{ data.created.date }}<br>
-            <b>Views:</b> <span class="views">{{ data.views }}</span>
-        </h6>
+        <div class="h6div">
+            <div class="h6div_row"><b>Published:</b> {{ data.created.date }}</div>
+            <div class="h6div_row"><b>Comments:</b> {{ render(controller('VelesHomeWorkBundle:HomeWork:getCommentsCount', {'aid': data.id})) }}</div>
+            <div class="h6div_row"><b>Views:</b> <span class="views">{{ data.views }}</span></div>
+        </div>
         <img class="img-circle-middle" src="{{ data.img | vlabs_filter('resize', { 'width' : 120, 'height' : 120 }) | vlabs_media('default') }}" />
         {% if app.request.get('_route') == "_single_article" %}
             {{ data.body | raw }}

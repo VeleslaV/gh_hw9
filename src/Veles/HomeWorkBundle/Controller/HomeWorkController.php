@@ -4,6 +4,7 @@ namespace Veles\HomeWorkBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 use Veles\HomeWorkBundle\Entity\Gbook;
 use Veles\HomeWorkBundle\Entity\Article;
@@ -115,6 +116,18 @@ class HomeWorkController extends Controller
         }
 
         return $commentObj;
+    }
+
+    public function getCommentsCountAction($aid)
+    {
+        $thread = $this->container
+            ->get('fos_comment.manager.thread')
+            ->findThreadById($aid);
+        $numOfComments = is_object($thread) ? $thread->getNumComments() : 0;
+
+        //var_dump($numOfComments); die;
+
+        return new Response($numOfComments);
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Articles >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
