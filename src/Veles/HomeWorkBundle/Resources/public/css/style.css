@@ -105,7 +105,7 @@ input.has_error {
 }
 .navbar {
     margin-bottom: 0 !important;
-    -webkit-transition: all 2.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -122,7 +122,7 @@ input.has_error {
 
 #sliderWrapper {
     background: #fff;
-    margin: -25px 0px 0px 0px;
+    margin: -35px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     position: fixed;
     right: 0;

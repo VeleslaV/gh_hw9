@@ -135,7 +135,7 @@ liip_imagine:
 
 vlabs_media:
     image_cache:
-        cache_dir: files/cache
+        cache_dir: media/cache
     mapping:
         image_entity:
           class: Veles\HomeWorkBundle\Entity\Image

@@ -1,41 +1,81 @@
 comments:
-    first:
+    0first:
         name: Odin
         email: odin@stangardmail.com
         message: In Norse mythology, Odin was the king of the Esir. He is a god of war and death, as well as a sky god and the god of wisdom and poetry. He is also heavily associated with magic.
-    second:
+    0second:
         name: Thor
         email: thor@stangard.com
         message: Thor is the red-haired and bearded god of thunder in Norse mythology. He is the son of Odin and Jord. The ancient Norse believed that during Ragnarök, Thor would kill and be killed by Jörmungandr.
-    third:
+    0third:
         name: Tyr
         email: tyr@stgm.com
         message: Tyr is a god in Norse mythology. In the Eddas, he is either the son of Odin or Hymir. He is the god of single (man-to-man) combat. Tyr only has one hand.
-    fourth:
+    0fourth:
         name: Yggdrasil
         email: yggdrasil@stgmail.com
         message: Yggdrasil is the name of the tree that links the 9 different worlds of Norse mythology. The tree is an ash. It links Niflheim and Asgard, amongst others. Below the tree resides Hel as well as the Well of Urd.
-    fifth:
+    0fifth:
         name: Freya
         email: freya@stgm.com
         message: Freyja (or Freya, Freja) is a goddess in Norse and Germanic Mythology. She is the twin sister of Freyr and the daughter of Njord. She was originally worshipped as a fertility goddess but in the Eddas she was often portrayed as a goddess of love, beauty and attraction.
-    sixth:
+    0sixth:
         name: Baldr
         email: baldr@stangardmail.com
         message: Baldr (Balder) is Odin's second son. He is the god of summer sun, light, and radiance. His twin brother is the blind god of darkness, Hodr. His wife is called Nanna. They have a son, called Forseti, god of justice.
-    seventh:
+    0seventh:
         name: Forseti
         email: forseti@stgmail.com
         message: Forseti is a god of justice and reconciliation in Norse mythology. He oversaw courts and mediation. He is one of the Æsir gods. Forseti's name means "the presiding one" in Old Norse.
-    eighth:
+    0eighth:
         name: Heimdallr
         email: heimdallr@stgm.com
         message: Heimdall (or Heimdallr) is one of the gods in Norse mythology. He is the guardian of the Bifrost Bridge. He was the son of nine different mothers and was called the White God.
-    ninth:
+    0ninth:
         name: Kvasir
         email: kvasir@stangard.com
         message: Kvasir is a wise god in Norse mythology. He was made when the spit of the Vanir gods and Aesir gods was mixed after their battle. He became the new god of knowledge and diplomacy.
-    tenth:
+    0tenth:
+        name: Loki
+        email: loki@stangardmail.com
+        message: Loki is the son of a frost giant in Norse mythology. He is the personification of cunning, trickery, and evil. Loki is the Norse God of Mischief and Lies.
+    01first:
+        name: Odin
+        email: odin@stangardmail.com
+        message: In Norse mythology, Odin was the king of the Esir. He is a god of war and death, as well as a sky god and the god of wisdom and poetry. He is also heavily associated with magic.
+    1second:
+        name: Thor
+        email: thor@stangard.com
+        message: Thor is the red-haired and bearded god of thunder in Norse mythology. He is the son of Odin and Jord. The ancient Norse believed that during Ragnarök, Thor would kill and be killed by Jörmungandr.
+    1third:
+        name: Tyr
+        email: tyr@stgm.com
+        message: Tyr is a god in Norse mythology. In the Eddas, he is either the son of Odin or Hymir. He is the god of single (man-to-man) combat. Tyr only has one hand.
+    1fourth:
+        name: Yggdrasil
+        email: yggdrasil@stgmail.com
+        message: Yggdrasil is the name of the tree that links the 9 different worlds of Norse mythology. The tree is an ash. It links Niflheim and Asgard, amongst others. Below the tree resides Hel as well as the Well of Urd.
+    1fifth:
+        name: Freya
+        email: freya@stgm.com
+        message: Freyja (or Freya, Freja) is a goddess in Norse and Germanic Mythology. She is the twin sister of Freyr and the daughter of Njord. She was originally worshipped as a fertility goddess but in the Eddas she was often portrayed as a goddess of love, beauty and attraction.
+    1sixth:
+        name: Baldr
+        email: baldr@stangardmail.com
+        message: Baldr (Balder) is Odin's second son. He is the god of summer sun, light, and radiance. His twin brother is the blind god of darkness, Hodr. His wife is called Nanna. They have a son, called Forseti, god of justice.
+    1seventh:
+        name: Forseti
+        email: forseti@stgmail.com
+        message: Forseti is a god of justice and reconciliation in Norse mythology. He oversaw courts and mediation. He is one of the Æsir gods. Forseti's name means "the presiding one" in Old Norse.
+    1eighth:
+        name: Heimdallr
+        email: heimdallr@stgm.com
+        message: Heimdall (or Heimdallr) is one of the gods in Norse mythology. He is the guardian of the Bifrost Bridge. He was the son of nine different mothers and was called the White God.
+    1ninth:
+        name: Kvasir
+        email: kvasir@stangard.com
+        message: Kvasir is a wise god in Norse mythology. He was made when the spit of the Vanir gods and Aesir gods was mixed after their battle. He became the new god of knowledge and diplomacy.
+    1tenth:
         name: Loki
         email: loki@stangardmail.com
         message: Loki is the son of a frost giant in Norse mythology. He is the personification of cunning, trickery, and evil. Loki is the Norse God of Mischief and Lies.

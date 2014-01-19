@@ -66,12 +66,12 @@ class LoadImageData extends AbstractFixture implements OrderedFixtureInterface
 
     protected function getUploadDir()
     {
-        return __DIR__ .'/../../../../../web/files/images/';
+        return __DIR__ .'/../../../../../web/media/images/';
     }
 
     protected function getPath($imageTitle)
     {
-        return 'files/images/'.$imageTitle;
+        return 'media/images/'.$imageTitle;
     }
 
     protected function getFixturesPath()

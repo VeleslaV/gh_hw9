@@ -77,7 +77,7 @@ class Article
      *   @ORM\JoinColumn(name="img", referencedColumnName="id")
      * })
      *
-     * @Vlabs\Media(identifier="image_entity", upload_dir="files/images")
+     * @Vlabs\Media(identifier="image_entity", upload_dir="media/images")
      */
     private $img;
 
