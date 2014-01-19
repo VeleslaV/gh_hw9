@@ -3,7 +3,7 @@
 {% block form %}
     <div>
         {{ form_start(form, {'attr': {'role': 'form', 'novalidate': 'novalidate' }}) }}
-        <div class="form_container">
+        <div class="gbook_form_container">
             <div class="row">
                 <div class="col-xs-5">
                     {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name' }}) }}
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="form-group">
-                {{ form_widget(form.message, {'attr': {'class': 'form-control', 'placeholder': 'Message' }}) }}
+                {{ form_widget(form.message, {'attr': {'class': 'form-control gbook_txra', 'placeholder': 'Message' }}) }}
             </div>
         </div>
         <div class="error_container">

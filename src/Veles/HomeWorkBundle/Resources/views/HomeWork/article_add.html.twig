@@ -4,41 +4,46 @@
     {{ include ('VelesHomeWorkBundle:HomeWork/Modules:breadcrumbs.html.twig', {'sectionName': 'Articles', 'pageName': sectionData.title}) }}
     <div>
         {{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form', 'novalidate': 'novalidate' }}) }}
-        <div class="form_container">
+        <div class="form_container" style="margin-left: 0px;">
             <div class="row">
                 {{ form_widget(form.views, {'attr': {'hidden': 'hidden' }}) }}
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Category</label>
-                    <div class="col-xs-10">
-                        {{ form_widget(form.category, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.category) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.category, {'attr': {'class': 'form-control' }}) }}
                     </div>
+                    {{ form_errors(form.category) }}
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Title</label>
-                    <div class="col-xs-10">
-                        {{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.title) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.title, {'attr': {'class': 'form-control' }}) }}
                     </div>
+                    {{ form_errors(form.title) }}
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Image</label>
-                    <div class="col-xs-10">
-                        {{ form_widget(form.img, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.img) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.img, {'attr': {'class': 'form-control' }}) }}
                     </div>
+                    {{ form_errors(form.img) }}
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Body</label>
-                    <div class="col-xs-10">
-                        {{ form_widget(form.body, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.body) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.body, {'attr': {'class': 'form-control' }}) }}
                     </div>
+                    {{ form_errors(form.body) }}
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Tags</label>
-                    <div class="col-xs-10">
-                        {{ form_widget(form.tags, {'attr': {'class': 'form-control' }}) }} {{ form_errors(form.tags) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.tags, {'attr': {'class': 'form-control' }}) }}
                     </div>
+                    {{ form_errors(form.tags) }}
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-xs-10">
+                    <div class="col-sm-offset-2 col-sm-6">
                         <button class="btn btn-block btn-primary" type="submit">Send</button>
                     </div>
                 </div>

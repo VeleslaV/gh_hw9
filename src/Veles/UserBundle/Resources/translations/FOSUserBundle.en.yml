@@ -40,29 +40,31 @@ change_password:
 
 # Registration
 registration:
-    check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
+    check_email: An email has been sent to <u>%email%</u>.<br> It contains an activation link you must click to activate your account.
     confirmed: Congrats %username%, your account is now activated.
     back: Back to the originating page.
     submit: Register
     flash:
         user_created: The user has been created successfully
     email:
-        subject: Welcome %username%!
+        subject: Welcome to our blog, %username%!
         message: |
-            Hello %username%!
+            Hello, %username%!
 
-            To finish activating your account - please visit %confirmationUrl%
+            To finish activating your account - please visit this link %confirmationUrl%
 
-            Regards,
-            the Team.
+            --
+            Best regards,
+            the team of Veles Blog.
 
 # Password resetting
 resetting:
+    page: Password reset
     password_already_requested: The password for this user has already been requested within the last 24 hours.
-    check_email: An email has been sent to %email%. It contains a link you must click to reset your password.
+    check_email: An email has been sent to <u>%email%</u>.<br> It contains a link you must click to reset your password.
     request:
         invalid_username: The username or email address "%username%" does not exist.
-        username: "Username or email address:"
+        username: "Username or email:"
         submit: Reset password
     reset:
         submit: Change password
@@ -71,12 +73,13 @@ resetting:
     email:
         subject: Reset Password
         message: |
-            Hello %username%!
+            Hello, %username%!
 
-            To reset your password - please visit %confirmationUrl%
+            To reset your password - please visit this link %confirmationUrl%
 
-            Regards,
-            the Team.
+            --
+            Best regards,
+            the team of Veles Blog.
 
 # Global strings
 layout:
@@ -84,6 +87,7 @@ layout:
     login: Login
     register: Register
     logged_in_as: Logged in as
+    password_reset: Password reset
 
 # Form field labels
 form:

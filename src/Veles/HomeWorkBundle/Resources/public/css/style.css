@@ -32,10 +32,24 @@ input.has_error {
     min-height: 110%;
     padding: 90px 0px 55px 0px;
 }
-.form_container {
+.gbook_form_container {
     width: 500px;
     margin: 0px 0px 0px 80px;
     float: left;
+}
+.form_container {
+    width: 850px;
+    margin: 0px 0px 0px 80px;
+    float: left;
+}
+.form_container ul, .form_container .form-control{
+    display: inline-block;
+}
+textarea.form-control {
+    height: 160px;
+}
+textarea.gbook_txra {
+    height: 70px !important;
 }
 .error_container {
     float: left;

@@ -1,0 +1,9 @@
+{% extends "VelesUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <blockquote>
+        <p class="text-info">{{ 'registration.check_email'|trans({'%email%': user.email}) | raw }}</p>
+    </blockquote>
+{% endblock fos_user_content %}

@@ -7,28 +7,28 @@
         {{ form_errors(form._token) }}
         <div class="row">
             <div class="form-group">
-                <label class="col-sm-4 control-label">{{ form_label(form.username) }}</label>
-                <div class="col-xs-8">
+                <label class="col-sm-2 control-label">{{ form_label(form.username) }}</label>
+                <div class="col-sm-4">
                     {{ form_widget(form.username, {'attr': {'class': 'form-control' }}) }}
-                    {{ form_errors(form.username) }}
                 </div>
+                {{ form_errors(form.username) }}
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label">{{ form_label(form.email) }}</label>
-                <div class="col-xs-8">
+                <label class="col-sm-2 control-label">{{ form_label(form.email) }}</label>
+                <div class="col-sm-4">
                     {{ form_widget(form.email, {'attr': {'class': 'form-control' }}) }}
-                    {{ form_errors(form.email) }}
                 </div>
+                {{ form_errors(form.email) }}
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label">{{ form_label(form.current_password) }}</label>
-                <div class="col-xs-8">
+                <label class="col-sm-2 control-label">{{ form_label(form.current_password) }}</label>
+                <div class="col-sm-4">
                     {{ form_widget(form.current_password, {'attr': {'class': 'form-control' }}) }}
-                    {{ form_errors(form.current_password) }}
                 </div>
+                {{ form_errors(form.current_password) }}
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-8">
+                <div class="col-sm-offset-2 col-sm-4">
                     <input class="btn btn-primary" type="submit" value="{{ 'profile.edit.submit'|trans }}" />
                 </div>
             </div>
