@@ -2,6 +2,7 @@
 
 namespace Veles\HomeWorkBundle\DataFixtures\ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Filesystem\Filesystem;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -31,6 +32,11 @@ class LoadImageData extends AbstractFixture implements OrderedFixtureInterface
             
             $file_http = new File($fixtureFile);
             $mime = $file_http->getMimeType();
+
+            $fs = new Filesystem();
+            if(!$fs->exists($this->getUploadDir())){
+                $fs->mkdir($this->getUploadDir(), 0700);
+            }
 
             $newImageName = sprintf('%s.%s', uniqid(), ExtensionGuesser::guess($mime));
             $newImageSrc = $this->getUploadDir().basename($newImageName);
