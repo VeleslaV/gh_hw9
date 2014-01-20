@@ -48,4 +48,18 @@
     </form>
     <div class="clr page-header"></div>
     <a href="{{ path('fos_user_resetting_request') }}">{{ 'layout.password_reset'|trans({}, 'FOSUserBundle') }}</a>
+
+    <div class="clr page-header"></div>
+    <div class="col-sm-6" style="padding: 0px;">
+        <table class="table table-bordered">
+            <tr>
+                <td class="success">Test user</td>
+                <td class="warning">testuser : testuser</td>
+            </tr>
+            <tr>
+                <td class="success">Test admin</td>
+                <td class="warning">testadmin : testadmin</td>
+            </tr>
+        </table>
+    </div>
 {% endblock fos_user_content %}

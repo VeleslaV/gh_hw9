@@ -2,7 +2,7 @@
     {% if is_granted('ROLE_ADMIN') %}
         <div id="admin_bar">
             <div class="container">
-                <img src="{{ 'bundles/veleshomework/images/slide_up.png' | imagine_filter('min_thumb') }}" class="slide_visible">
+                <img src="{{ 'bundles/veleshomework/images/slide_up.png' | imagine_filter('min_thumb') }}" class="" id="slideBtn">
                 <ul class="nav navbar-nav">
                     <li>
                         <img src="{{ 'bundles/veleshomework/images/settings.png' | imagine_filter('min_thumb') }}" class="settings_img">
