@@ -26,15 +26,12 @@ class ArticleAdmin extends Admin
                 'read_only' => true
             ))
             ->add('body')
-            ->add('tags', 'entity', array(
+            ->add('tags', 'sonata_type_model', array(
                 'class' => 'VelesHomeWorkBundle:Tag',
                 'property' => 'title',
                 'multiple' => true,
                 'expanded' => false,
-                'query_builder' => function(\Veles\HomeWorkBundle\Entity\TagRepository $er){
-                    return $er->createQueryBuilder('t')
-                        ->orderBy('t.title', 'DESC');
-                },
+                'by_reference' => false
             ))
             ->add('created')
         ;

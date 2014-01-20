@@ -158,6 +158,12 @@ vlabs_media:
         image_entity:
           class: Veles\HomeWorkBundle\Entity\Image
 
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
+
 # Doctrine Configuration
 doctrine:
     dbal:

@@ -57,7 +57,7 @@ class Article
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="articles")
+     * @ORM\ManyToMany(targetEntity="Tag", mappedBy="articles", cascade={"persist"})
      * @ORM\JoinTable(name="tag_article")
      */
     protected $tags;
@@ -208,9 +208,8 @@ class Article
      */
     public function addTag(Tag $tag)
     {
-        $this->tags->add($tag);
         $tag->addArticle($this);
-        return $this;
+        $this->tags->add($tag);
     }
 
     /**
@@ -219,6 +218,15 @@ class Article
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * @param Tag $tag
+     * @return $this
+     */
+    public function removeTag(Tag $tag) {
+        $this->tags->removeElement($tag);
+        $tag->removeArticle($this);
     }
 
     /**

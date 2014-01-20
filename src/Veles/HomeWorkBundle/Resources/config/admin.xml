@@ -11,5 +11,15 @@
                 <argument>VelesHomeWorkBundle</argument>
             </call>
         </service>
+
+        <service id="sonata.admin.tag" class="Veles\HomeWorkBundle\Admin\TagAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Content" label="Tag"/>
+            <argument />
+            <argument>Veles\HomeWorkBundle\Entity\Tag</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>VelesHomeWorkBundle</argument>
+            </call>
+        </service>
     </services>
 </container>

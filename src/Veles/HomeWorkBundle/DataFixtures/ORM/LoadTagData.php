@@ -21,7 +21,6 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
             $tag = new Tag();
 
             $tag
-                ->setName($key)
                 ->setTitle($value['title'])
             ;
 

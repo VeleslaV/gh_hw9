@@ -35,9 +35,10 @@ class TagSizeExtension extends \Twig_Extension
             ->where('t.id = :tid')->setParameter('tid', $tId)
             ->groupBy('t.id');
 
-        $tagCount = $qb->getQuery()->getSingleScalarResult();
-        $tagWeight = $minFontSize + $tagCount * (($maxFontSize - $minFontSize) / 10);
+        $tagCount = $qb->getQuery()->getOneOrNullResult();
+        $resultCount = $tagCount != null?$tagCount[1]:0;
 
+        $tagWeight = $minFontSize + $resultCount * (($maxFontSize - $minFontSize) / 10);
         $string = "<a href=".$link." style='font-size: ".$tagWeight."pt;'>$tag</a> ";
 
         return $string;

@@ -5,6 +5,7 @@ namespace Veles\HomeWorkBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Tag
@@ -26,16 +27,15 @@ class Tag
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    protected $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     protected $title;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(name="name", length=128, unique=true)
+     */
+    protected $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="Article", inversedBy="tags")
@@ -54,29 +54,6 @@ class Tag
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Tag
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -103,6 +80,16 @@ class Tag
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * @param ArrayCollection $articles
      * @return $this
      */
@@ -120,6 +107,14 @@ class Tag
     {
         $this->articles->add($article);
         return $this;
+    }
+
+    /**
+     * @param Article $article
+     * @return $this
+     */
+    public function removeArticle(Article $article) {
+        $this->articles->removeElement($article);
     }
 
     /**
